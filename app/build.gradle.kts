@@ -40,6 +40,9 @@ android {
 
 dependencies {
 
+    //Glide
+    implementation(libs.glide)
+
     implementation(libs.androidx.navigation.navigation.fragment.ktx3)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.core.ktx)
