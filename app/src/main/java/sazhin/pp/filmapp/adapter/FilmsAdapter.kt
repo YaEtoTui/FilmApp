@@ -13,11 +13,13 @@ import sazhin.pp.filmapp.models.Film
 
 class FilmsAdapter: ListAdapter<Film, FilmsAdapter.Holder>(Comparator()) {
 
+    private lateinit var onButtonClickListener: OnButtonClickListener
+
     class Holder(view: View) : RecyclerView.ViewHolder(view) {
 
         private val binding = ItemListFilmBinding.bind(view)
 
-        fun bind(film: Film) = with(binding) {
+        fun bind(film: Film, onButtonClickListener: OnButtonClickListener) = with(binding) {
             binding.apply {
 
                 Glide.with(itemView.context)
@@ -27,6 +29,10 @@ class FilmsAdapter: ListAdapter<Film, FilmsAdapter.Holder>(Comparator()) {
                     .into(Photo)
 
                 Description.text = film.shortDescription
+
+                cView.setOnClickListener {
+                    onButtonClickListener.onClick(film.id)
+                }
             }
         }
     }
@@ -49,6 +55,14 @@ class FilmsAdapter: ListAdapter<Film, FilmsAdapter.Holder>(Comparator()) {
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(getItem(position), onButtonClickListener)
+    }
+
+    interface OnButtonClickListener {
+        fun onClick(id: Int)
+    }
+
+    fun setOnButtonClickListener(listener: OnButtonClickListener) {
+        onButtonClickListener = listener
     }
 }

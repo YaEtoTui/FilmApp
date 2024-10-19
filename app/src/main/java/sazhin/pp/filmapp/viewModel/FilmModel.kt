@@ -5,7 +5,7 @@ import sazhin.pp.filmapp.models.Film
 import sazhin.pp.filmapp.models.Person
 import sazhin.pp.filmapp.models.Type
 
-class FilmModel: ViewModel() {
+class FilmModel : ViewModel() {
 
     private val _filmList = mutableListOf<Film>()
 
@@ -43,7 +43,7 @@ class FilmModel: ViewModel() {
                     )
                 ),
                 Film(
-                    1,
+                    2,
                     "Скуби-Ду 2: Монстры на свободе",
                     "https://avatars.mds.yandex.net/get-kinopoisk-image/6201401/26e040ff-10d8-4139-a0fc-fa828394b06f/300x450",
                     Type.FILM,
