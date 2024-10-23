@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_main">
+
+    <fragment
+        android:id="@+id/navigation_main"
+        android:name="sazhin.pp.filmapp.fragment.MainFragment"
+        android:label="@string/list_film"
+        tools:layout="@layout/fragment_list_film">
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_list_film"
+        android:name="sazhin.pp.filmapp.fragment.ListFilmFragment"
+        android:label="@string/list_film"
+        tools:layout="@layout/fragment_list_film">
+        <action
+            android:id="@+id/action_navigation_list_film_to_navigation_film"
+            app:destination="@id/navigation_film" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_movie"
+        android:name="sazhin.pp.filmapp.fragment.MovieFragment"
+        android:label="@string/movie"
+        tools:layout="@layout/fragment_movie">
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="sazhin.pp.filmapp.fragment.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings">
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_film"
+        android:name="sazhin.pp.filmapp.fragment.FilmFragment"
+        tools:layout="@layout/fragment_film">
+        <action
+            android:id="@+id/action_navigation_film_to_navigation_list_film"
+            app:destination="@id/navigation_list_film" />
+    </fragment>
+
+</navigation>
